@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "crypto_price_bot"
+version = "0.1.0"
+description = ""
+authors = ["saper663_home <saper663ru@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+requests = "^2.24.0"
+CherryPy = "^18.6.0"
+pyTelegramBotAPI = "^3.7.3"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
