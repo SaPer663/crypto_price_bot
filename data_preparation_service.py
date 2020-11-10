@@ -19,13 +19,14 @@ if __name__ == "__main__":
     first_pair_last_price = 0
     second_pair_data = {}
     second_pair_last_price = 0
+    send_message("I'm working!")
 
     while True:
         first_pair_data = get_json_from_server(first_pair)
         second_pair_data = get_json_from_server(second_pair)
         
-        first_pair_current_price = first_pair_data[0]['data']['last']
-        second_pair_current_price = second_pair_data[1]['data']['last']
+        first_pair_current_price = first_pair_data['data']['last']
+        second_pair_current_price = second_pair_data['data']['last']
         
         if is_big_change(first_pair_current_price, first_pair_last_price):
             message = api.convert_json_to_warning_message(
