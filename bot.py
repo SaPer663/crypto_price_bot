@@ -21,13 +21,14 @@ def command_start(message):
 @bot.message_handler(commands=['first'])
 def command_first(message):
     load_price = read_file()
+    print(load_price)
     price = load_price[0]["data"]["last"]
     bot.send_message(message.chat.id, f'{first_currency_name}:- {price}')
 
 @bot.message_handler(commands=['second'])
 def command_second(message):
     load_price = read_file()
-    price = load_price[0]["data"]["last"]
+    price = load_price[1]["data"]["last"]
     bot.send_message(message.chat.id, f'{second_currency_name}:- {price}')
     
 
