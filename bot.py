@@ -18,14 +18,14 @@ CHAT_ID = chat_id
 def command_start(message):
     bot.send_message(message.chat.id, "Привет! Я crypto_price_bot")
 
-@bot.message_handler(commands=['first'])
+@bot.message_handler(commands=[first_currency_name])
 def command_first(message):
     load_price = read_file()
     print(load_price)
     price = load_price[0]["data"]["last"]
     bot.send_message(message.chat.id, f'{first_currency_name}:- {price}')
 
-@bot.message_handler(commands=['second'])
+@bot.message_handler(commands=[first_currency_name])
 def command_second(message):
     load_price = read_file()
     price = load_price[1]["data"]["last"]
