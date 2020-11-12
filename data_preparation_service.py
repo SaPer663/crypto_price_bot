@@ -55,7 +55,7 @@ if __name__ == "__main__":
             send_message(api.convert_json_to_daily_message(first_pair_data, first_currency_name))
             send_message(api.convert_json_to_daily_message(second_pair_data, second_currency_name))
             isSent = True
-        if now.tm_hour !10 and isSent:
+        if now.tm_hour not 10 and isSent:
             isSent = False
         
         sleep(900)
