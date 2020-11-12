@@ -11,7 +11,9 @@ def is_big_change(current_price, last_price):
     if abs(current_price - last_price) > 90:
         return True
     else:
-        return False 
+        return False
+
+isSent = False 
 
 if __name__ == "__main__":
           
@@ -48,10 +50,13 @@ if __name__ == "__main__":
         second_pair_last_price = second_pair_current_price
 
         api.write_file([first_pair_data, second_pair_data])
-        
-        if localtime().tm_hour == 10:
+        now = localtime()
+        if now.tm_hour == 10 and not isSent:
             send_message(api.convert_json_to_daily_message(first_pair_data, first_currency_name))
             send_message(api.convert_json_to_daily_message(second_pair_data, second_currency_name))
+            isSent = True
+        if now.tm_hour !10 and isSent:
+            isSent = False
         
         sleep(900)
 
